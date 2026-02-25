@@ -1,5 +1,5 @@
 /********************************************
-*	AUTHORS:	<Kaan, Ricardo Jr ,Xander>
+*	AUTHORS:	<Kaan, Ricardo  ,Xander>
 * COLLABORATORS: <name of peer, tutor, instructor, anyone else who helped>
 *	LAST MODIFIED:	<date of last change>
 ********************************************/
