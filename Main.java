@@ -21,6 +21,8 @@
 * STATIC METHODS:
 * calculateTotalCalories - Kaan
 * calculateAverageNutrient - Kaan
+* calculateWeightChange - Ricardo Jr
+* interpretWeightChange - Ricardo Jr
 *********************************************/
 
 
@@ -38,6 +40,8 @@ public class Main
     double protein1, protein2, protein3;
     double carbs1, carbs2, carbs3;
     double fat1, fat2, fat3;
+
+    double currentWeight, previousWeight;
 
 
     /***** INITIALIZATION SECTION *****/
@@ -62,6 +66,12 @@ public class Main
     fat3 = 15.0;
 
 
+    
+    currentWeight = 75.0; // Example current weight in kg for this week.
+    previousWeight = 78.0; // Example previous weight in kg for last week.
+
+
+
     /***** INTRO SECTION *****/
     System.out.println("Welcome to the Daily Calorie & Nutrition Tracker!\n");
 
@@ -71,7 +81,8 @@ public class Main
     double avgProtein = calculateAverageNutrient(protein1, protein2, protein3);
     double avgCarbs = calculateAverageNutrient(carbs1, carbs2, carbs3);
     double avgFat = calculateAverageNutrient(fat1, fat2, fat3);
-
+    
+    double weightChange = calculateWeightChange(currentWeight, previousWeight);
 
     /***** OUTPUT SECTION *****/
     System.out.println("Meal Summary:");
@@ -86,6 +97,15 @@ public class Main
     System.out.printf("Average Protein: %.1f g\n", avgProtein);
     System.out.printf("Average Carbs: %.1f g\n", avgCarbs);
     System.out.printf("Average Fat: %.1f g\n", avgFat);
+
+
+
+
+    System.out.println("\nWeight Change Analysis:");
+    System.out.printf("Current Weight: %.1f kg\n", currentWeight);
+    System.out.printf("Previous Weight: %.1f kg\n", previousWeight);
+    System.out.printf("Weight Change: %.1f kg\n", weightChange);
+    System.out.println(interpretWeightChange(weightChange));
   }
 
 
@@ -100,4 +120,28 @@ public class Main
   {
     return (n1 + n2 + n3) / NUM_MEALS;
   }
+
+
+
+public static double calculateWeightChange(double currentWeight, double previousWeight)
+  {
+    return currentWeight - previousWeight;
+  }
+
+  public static String interpretWeightChange(double weightChange)
+  {
+    if (weightChange < 0)
+    {
+      return "You lost weight since last week.";
+    }
+    else if (weightChange > 0)
+    {
+      return "You gained weight since last week.";
+    }
+    else
+    {
+      return "Your weight is unchanged since last week.";
+    }
+  }
+
 }
